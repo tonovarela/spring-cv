@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+    <title>Skills Detail</title>
+</head>
+<body>
+
+<h1>Skills Detail</h1>
+<div th:if="${skill != null}">
+    <p><strong>Name:</strong> <span th:text="${skill.name}"></span></p>
+    <p><strong>Level:</strong> <span th:text="${skill.level}"></span></p>
+</div>
+
+<a href="/skills">Volver</a>
+
+
+
+
+
+
+</body>
+</html>

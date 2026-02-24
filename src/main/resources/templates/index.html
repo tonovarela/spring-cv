@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+    <title>My CV</title>
+</head>
+<body>
+<h1>Este es un CV</h1>
+<p>Texto por defecto</p>
+<p th:text="'Hola,'+ ${nombre}+', como estas!!'"></p>
+<p th:if=" ${nombre.length< 3}" style="color:red">El nombre debe de tener como minimo 3 caracteres</p>
+<p th:text="'Hola,'+ ${person.name} +' ' +${person.lastName} +'  se que eres '+ ${person.profession}"></p>
+<p th:text="${property}"></p>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+    <title>Skills Document</title>
+</head>
+<body>
+
+
+<h1>Agregar nueva habilidad</h1>
+
+<form th:action="@{/skills/add}" th:object="${skill}" method="post">
+    <label th:for="name">Habilidad:</label>
+    <input type="text" name="name"  th:field="*{name}" placeholder="Ingrese una habilidad" required>
+    </br>
+    <input type="text" name="level"  th:field="*{level}" placeholder="Ingrese un nivel" required>
+    <button type="submit" >Guardar</button>
+</form>
+
+
+</body>
+</html>

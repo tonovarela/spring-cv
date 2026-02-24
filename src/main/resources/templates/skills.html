@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+
+<!--    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>-->
+    <title>Skills Document</title>
+</head>
+<body>
+<h1 th:if="${!skills.isEmpty()}">Nuestras habilidades</h1>
+<ul th:if="${!skills.isEmpty()}">
+    <li th:each="skill, stat: ${skills}" >
+        <span th:text="'Habilidad:'+ ${skill.name} + 'Nivel'+ ${skill.level} "></span>
+        <a th:href="@{'/skills/id/'+ ${stat.index+1}}">Ver Detalles</a>
+<!--               <span  th:text="${stat.count}"></span>-->
+<!--                <span  th:text="${stat.size}"></span>-->
+<!--                <span th:if="${stat.first}" >(Primera)</span>-->
+<!--                <span th:if="${stat.last}" >(Última)</span>-->
+<!--                <span th:if="${stat.even}" >Par</span>-->
+<!--                <span th:if="${stat.odd}">Impar</span>-->
+
+
+    </li>
+</ul>
+<h1 th:if="${!skills2.isEmpty()}">Skills 2</h1>
+<ul th:if="${!skills2.isEmpty()}">
+<li th:each="skill: ${skills2}" th:text="${skill}">Skill</li>
+</ul>
+
+<p th:if="${filteredMessage}" th:text="${filteredMessage}"></p>
+
+
+
+
+<form th:action="@{/skills}"  method="get">
+    <label th:for="name">Buscar Habilidad:</label>
+    <input type="text" name="filter"  th:value="${filter}" placeholder="Ingrese una habilidad" required>
+    <button type="submit" >Buscar</button>
+    <button type="button" >Boton extra</button>
+    <br>
+    <a href="/skills/new" >Agregar nueva habilidad</a>
+</form>
+
+
+</body>
+</html>
